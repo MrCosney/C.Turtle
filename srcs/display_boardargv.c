@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   argvmax.c                                          :+:      :+:    :+:   */
+/*   display_board.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cosney <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/14 09:20:13 by cosney            #+#    #+#             */
-/*   Updated: 2020/04/14 13:22:09 by cosney           ###   ########.fr       */
+/*   Created: 2020/04/14 13:25:39 by cosney            #+#    #+#             */
+/*   Updated: 2020/04/14 13:34:22 by cosney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		argv_max(int argc, char **argv)
+#include "header.h"
+
+void    display_boardargv(char **b_argv, int argc, int j)
 {
-    int i;
-    int j;
-    int maxstr;
-    
-    maxstr = 0;
-    i = 1;
-    while (i < argc)
-    {
-        j = 0;    
-        while (argv[i][j] != '\0')
-            j++;
-        if (j >= maxstr)
-            maxstr = j;
-        i++;
-    }
-    return (maxstr);
+	int x;
+	int y;
+
+	x = 0;
+	while (x < (argc - 1))
+	{
+		y = 0;
+		while (y < j)
+		{
+			write(1, &b_argv[x][y], 1);
+			y++;
+		}
+		write(1, "\n", 1);
+		x++;
+	}
 }
