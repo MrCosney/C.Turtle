@@ -6,13 +6,13 @@
 /*   By: cosney <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 09:19:37 by cosney            #+#    #+#             */
-/*   Updated: 2020/04/14 14:25:02 by cosney           ###   ########.fr       */
+/*   Updated: 2020/04/14 18:38:52 by cosney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	get_startposition(int argc, char **argv, int **X)
+void	get_startposition(int argc, char **argv, int X[][100])
 {
     int j;
     int i;
@@ -41,68 +41,53 @@ void	get_startposition(int argc, char **argv, int **X)
 	}
 }
 
-
-int		get_way(int argc, char **argv, char **way)
+void	get_way(int argc, char **argv, char way[][100])
 {
     int j;
     int i;
     int k;
-    int n;
     
     i = 0;
 	while (i < (argc - 1))
 	{   
 	    j = 0;
 	    k = 0;
-	    /*n = 0;
-	    while (argv[i + 1][n] != '-')
-	    {
-	        n++;
-	    }
-	    if (argv[i + 1][n + 1] == '-')
-	        return (0);*/
-	    while (argv[i + 1][k] != 'r' && argv[i + 1][k] != 'g' && argv[i + 1][k] != 'l') 
-	    {
+	    while (argv[i + 1][k] != '-')
 	        k++;
-	    }
+	    k = k + 1;
 	    while (argv[i + 1][k] != '-')
 	    {
-	        way[i][j] = argv[i+1][k];
-	        j++;
-		    k++;
-	        
-	    }
+	       	way[i][j] = argv[i + 1][k];
+	       	j++;
+		   	k++;
+		}
 	    way[i][j] = '\0';
 	    i++;
 	}
-	return (0);
 }
 
-
-void	get_name(int argc, char **argv, char **name)
+void	get_name(int argc, char **argv, char name[][100])
 {
-    int j;
-    int i;
-    int k;
+    int		i;
+    int		j;
+    int		k;
     
     i = 0;
 	while (i < (argc - 1))
 	{   
 	    j = 0;
 	    k = 0;
-	    while (argv[i + 1][k] != '-')
-	    {
-	        k++;
+	    while (j < 2)
+		{
+			while (argv[i + 1][k] != '-')
+	        	k++;
+	    	k = k + 1;
+	    	j++;
 	    }
-	    k = k + 1;
-	    while (argv[i + 1][k] != '-')
-	    {
-	        k++;
-	    }
-	    k = k + 1;
+	    j = 0;
     	while (argv[i + 1][k] != '\0')
 	    {   
-            name[i][j] = argv[i+1][k];
+            name[i][j] = argv[i + 1][k];
 		    j++;
 		    k++;
 	    }
@@ -111,27 +96,9 @@ void	get_name(int argc, char **argv, char **name)
 	}
 }
 
-
-void	get_data(int argc, char **argv, char **b_argv, int **X, char **way, char **name)
+void	data(int agc, char **agv, int X[][100], char way[][100], char n[][100])
 {
-    int x;
-    int k;
-    int i;
-    
-    k = 0;
-    i = 0;
-	while (k < (argc - 1))
-	{
-		x = 0;
-		while (argv[k+1][x] != '\0')
-		{
-			b_argv[k][x] = argv[k+1][x];
-			x++;
-		}
-		b_argv[k][x] = '\0';
-		k++;
-	}
-    get_startposition(argc, argv, X);	
-    get_way(argc, argv, way);
-    get_name(argc, argv, name);
+    get_startposition(agc, agv, X);	
+    get_way(agc, agv, way);
+    get_name(agc, agv, n);
 }
