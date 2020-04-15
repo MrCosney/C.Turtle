@@ -1,6 +1,6 @@
 # TURTLES
 
-![alt tag](http://cdn.getwishboneapp.com/ui/4876844259e6fa1074389916a0fff630.jpeg)
+![alt tag](https://sun1-47.userapi.com/hVXsDB8VP8tN76sGbgUskEKLL7oY_H46qwIt8A/zlfUSipW8Sk.jpg)
 
 _____
 
