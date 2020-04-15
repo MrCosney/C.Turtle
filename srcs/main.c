@@ -6,41 +6,45 @@
 /*   By: cosney <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 09:18:11 by cosney            #+#    #+#             */
-/*   Updated: 2020/04/14 18:57:51 by cosney           ###   ########.fr       */
+/*   Updated: 2020/04/14 19:45:43 by cosney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
+void	get_winner(int argc, int pos[][100], char way[][1000], int *t_number)
+{	
+	int		idx;
+	int		direction;
+	int		finish;
+	int		steps;
+	int		res;
+	
+	idx = 0;
+    finish = 0;
+    steps = 0;
+    while (idx < (argc - 1))
+    {
+        direction = 0;
+        steps = 0;
+        res = cucumber(pos[idx][0], pos[idx][1], way[idx], direction, steps);
+        if (finish == 0 || (res != 0 && res < finish))
+        {
+            finish = res;
+            *t_number = idx;
+        }
+        idx++;
+    }
+}
+
 int		main(int argc, char **argv)
 {
-    char	board[32][32];
-    int		pos[100][100];
-    char	way[10][100];
+    char	way[10][1000];
     char	name[10][100];
-    int		i;
-    int		dir;
-    int		res;
-    int		index;
-    int		final;
-    int		final_index;
-    
-    board_array(board);
-    i = 0;
+    int		t_number;
+	int		pos[10][100];
+
     data(argc, argv, pos, way, name); 
-    index = 0;
-    final = 0;
-    while (index < (argc-1))
-    {
-        dir = 0;
-        i = 0;
-        res = cucumber(pos[index][0], pos[index][1], way[index], dir, i);
-        if (final == 0 || (res != 0 && res < final))
-        {
-            final = res;
-            final_index = index;
-        }
-        index++;
-    }
-    printf("champion = %s\n", name[final_index]); 
+    get_winner(argc, pos, way, &t_number);
+	printf("WOW LOOK AT = %s\n", name[t_number]);
 }
