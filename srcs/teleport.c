@@ -6,34 +6,34 @@
 /*   By: cosney <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 18:14:46 by cosney            #+#    #+#             */
-/*   Updated: 2020/04/14 18:24:02 by cosney           ###   ########.fr       */
+/*   Updated: 2020/04/15 16:07:24 by cosney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	check_teleport(char *way, int dir, int *x, int *y, int i)
 {
 	if (way[i] == 'g' && dir == 0)
-    {
-        if (*x == 30)
-            *x = 0;
-        *x = *x + 1;
-    }
-    else if (way[i] == 'g' && dir == 1)
-    {
-        if (*y == 30)
-            *y = 0;
-        *y = *y + 1;
-    }
-    else if (way[i] == 'g' && dir == 2)
-    {
-        if (*x == 1)
-            *x = 30;
-        *x = *x - 1;
-    }
-    else if (way[i] == 'g' && dir == 3)
-    {
-        if (*y == 1)
-            *y = 30;
-        *y = *y - 1;
-    }
-}
+	{
+		if (*x == 30)
+			*x = 0;
+		*x = *x + 1;
+	}
+	else if (way[i] == 'g' && dir == 1)
+	{
+		if (*y == 30)
+			*y = 0;
+		*y = *y + 1;
+	}
+	else if (way[i] == 'g' && dir == 2)
+	{
+		if (*x == 1)
+			*x = 30;
+		*x = *x - 1;
+	}
+	else if (way[i] == 'g' && dir == 3)
+	{
+		if (*y == 1)
+			*y = 30;
+		*y = *y - 1;
+	}
+}	
