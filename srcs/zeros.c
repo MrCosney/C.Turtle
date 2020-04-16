@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   teleport.c                                         :+:      :+:    :+:   */
+/*   zeros.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cosney <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/14 18:14:46 by cosney            #+#    #+#             */
-/*   Updated: 2020/04/16 14:51:30 by cosney           ###   ########.fr       */
+/*   Created: 2020/04/09 12:40:16 by cosney            #+#    #+#             */
+/*   Updated: 2020/04/09 12:40:19 by cosney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	check_teleport(char *way, int dir, int *x, int *y, int i)
+void	zeros(char *str, int var)
 {
-	if (way[i] == 'g' && dir == 0)
+	int index;
+
+	index = 0;
+	while (index < var)
 	{
-		if (*x == 30)
-			*x = 0;
-		*x = *x + 1;
+		str[index] = '\0';
+		index++;
 	}
-	else if (way[i] == 'g' && dir == 1)
-	{
-		if (*y == 30)
-			*y = 0;
-		*y = *y + 1;
-	}
-	else if (way[i] == 'g' && dir == 2)
-	{
-		if (*x == 1)
-			*x = 30;
-		*x = *x - 1;
-	}
-	else if (way[i] == 'g' && dir == 3)
-	{
-		if (*y == 1)
-			*y = 30;
-		*y = *y - 1;
-	}
-}	
+}
