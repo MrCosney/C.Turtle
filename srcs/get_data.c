@@ -6,7 +6,7 @@
 /*   By: cosney <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 09:19:37 by cosney            #+#    #+#             */
-/*   Updated: 2020/04/16 18:41:19 by cosney           ###   ########.fr       */
+/*   Updated: 2020/04/17 12:46:49 by cosney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	get_way(int argc, char **argv, char way[][SIZ])
 	}
 }
 
-void	get_name(int argc, char **argv, char name[][SIZ])
+void	get_name(int argc, char **argv, char name[][SIZ1])
 {
 	int		i;
 	int		j;
@@ -97,7 +97,7 @@ void	get_name(int argc, char **argv, char name[][SIZ])
 	}
 }
 
-void	data(int agc, char **agv, int X[][2], char w[][SIZ], char n[][SIZ])
+void	data(int agc, char **agv, int X[][2], char w[][SIZ], char n[][SIZ1])
 {
 	get_startposition(agc, agv, X);
 	get_way(agc, agv, w);

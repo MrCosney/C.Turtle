@@ -6,7 +6,7 @@
 /*   By: cosney <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/15 16:32:35 by cosney            #+#    #+#             */
-/*   Updated: 2020/04/16 17:57:17 by cosney           ###   ########.fr       */
+/*   Updated: 2020/04/17 12:22:54 by cosney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int		input_check(int argc, char **argv)
 		}
 		if (d != 1 || t != 2)
 		{
-			ft_putstr("Error input");
+			ft_putstr("Error: Input is incorrect\n");
+			ft_putstr("Please use format : X:Y-Way-Name\n");
 			return (1);	
 		}
 	}
@@ -70,7 +71,7 @@ int		pos_check(int argc, char **argv)
 			s.i++;
 		else
 		{
-			ft_putstr("Error start posion");
+			ft_putstr("Error: Start position is Wrong. Use coorect format.\n");
 			return (1);
 		}
 	}
@@ -98,15 +99,14 @@ int		check_name(int argc, char **argv)
 				s.k++;
 			else
 			{
-				ft_putstr("Ooops...Such names are more like kids Nicknames ");
-				ft_putstr("in the Minecraft. Don't use it for Turtles!!>_<\n");
+				ft_putstr("Error: Such names are more like kids Nicknames ");
+				ft_putstr("in the Minecraft.\nDon't use it for Turtles!>_<\n");
 				return (1);
 			}		
 		}
 	}
 	return (0);
 }				
-
 
 int		check_way(int argc, char **argv)
 {
@@ -124,9 +124,15 @@ int		check_way(int argc, char **argv)
 				s.k++;
 			else 
 			{
-				ft_putstr("I don't know this way");
+				ft_putstr("Error: Turtles doesn't know such moves\n");
+				ft_putstr("Is's hard to teach an old turtles new movements\n");
 				return (1);
 			}
+		}
+		if (s.k > 1000)
+		{
+			ft_putstr("Error: This is such a long way for poor turtle.\n");
+			return (1);
 		}
 	}
 	return (0);
@@ -137,12 +143,12 @@ int		check(int argc, char **argv)
 {
 	if (argc == 1)
 	{
-		ft_putstr("Noo..There's no Turtles. God Damn Mario ate them all ;(\n");
+		ft_putstr("Error:There's no Turtles. God Damn Mario ate them all=(\n");
 		return (1);
 	}
 	else if (argc > 11)
 	{
-		ft_putstr("SO MANY TURTLESSS!!");
+		ft_putstr("Error: Wow it's so many turtles on a Cucumber party!\n");
 		return (1);
 	}
 	if (input_check(argc, argv))
