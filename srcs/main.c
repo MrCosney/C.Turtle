@@ -6,14 +6,13 @@
 /*   By: cosney <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 09:18:11 by cosney            #+#    #+#             */
-/*   Updated: 2020/04/16 14:50:05 by cosney           ###   ########.fr       */
+/*   Updated: 2020/04/16 18:46:02 by cosney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-#include "stdio.h"
 
-void	get_winner(int argc, int pos[][100], char way[][1000], int *t_number)
+void	get_winner(int argc, int pos[][2], char way[][SIZ], int *t_number)
 {
 	int		idx;
 	int		direction;
@@ -28,7 +27,6 @@ void	get_winner(int argc, int pos[][100], char way[][1000], int *t_number)
 		direction = 0;
 		steps = 0;
 		res = cucumber(pos[idx][0], pos[idx][1], way[idx], direction, steps);
-		printf ("%d \n", res);
 		if (res != -1 && (res < finish || finish == -1))
 		{
 			finish = res;
@@ -40,24 +38,28 @@ void	get_winner(int argc, int pos[][100], char way[][1000], int *t_number)
 
 int		main(int argc, char **argv)
 {
-	char	way[10][1000];
-	char	name[10][100];
+	char	way[argc - 1][SIZ];
+	char	name[argc - 1][SIZ];
+	int		pos[argc - 1][2];
 	int		t_number;
-	int		pos[10][100];
-	int		i;
 
 	t_number = -1;
-
-	while(i < 10)
+	while(++t_number < (argc - 1))
 	{
-		zeros(way[i], 100);
-		i++;
+		zeros(way[t_number], SIZ);
+		zeros(name[t_number], SIZ);
 	}
-	data(argc, argv, pos, way, name);
-	if (check(argc, name, way, pos))
+	if (check(argc, argv))
 		return (0);
+	data(argc, argv, pos, way, name);
+	if (outboard(argc, pos))
+		return (0);
+	t_number = -1;
 	get_winner(argc, pos, way, &t_number);
 	if (t_number != -1)
 		ft_putstr(name[t_number]);
+	else
+		ft_putstr("Sorry no cucumber");
+	ft_putstr("\n");
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: cosney <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 09:19:37 by cosney            #+#    #+#             */
-/*   Updated: 2020/04/15 16:19:29 by cosney           ###   ########.fr       */
+/*   Updated: 2020/04/16 18:41:19 by cosney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	get_startposition(int argc, char **argv, int X[][100])
+void	get_startposition(int argc, char **argv, int X[][2])
 {
 	int		i;
 	int		j;
@@ -36,12 +36,13 @@ void	get_startposition(int argc, char **argv, int X[][100])
 			X[i][1] = X[i][1] + (argv[i + 1][j] - '0');
 			j++;
 		}
-		X[i][2] = '\0';
+		if ((X[i][0] < 1 || X[i][0] > 30) || (X[i][1] < 1 || X[i][1] > 30))
+			X[i][0] = 0;
 		i++;
 	}
 }
 
-void	get_way(int argc, char **argv, char way[][1000])
+void	get_way(int argc, char **argv, char way[][SIZ])
 {
 	int 	j;
 	int 	i;
@@ -66,7 +67,7 @@ void	get_way(int argc, char **argv, char way[][1000])
 	}
 }
 
-void	get_name(int argc, char **argv, char name[][100])
+void	get_name(int argc, char **argv, char name[][SIZ])
 {
 	int		i;
 	int		j;
@@ -96,7 +97,7 @@ void	get_name(int argc, char **argv, char name[][100])
 	}
 }
 
-void	data(int agc, char **agv, int X[][100], char w[][1000], char n[][100])
+void	data(int agc, char **agv, int X[][2], char w[][SIZ], char n[][SIZ])
 {
 	get_startposition(agc, agv, X);
 	get_way(agc, agv, w);
