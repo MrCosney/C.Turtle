@@ -6,7 +6,7 @@
 /*   By: cosney <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/15 16:32:35 by cosney            #+#    #+#             */
-/*   Updated: 2020/04/17 12:22:54 by cosney           ###   ########.fr       */
+/*   Updated: 2020/04/17 12:56:40 by cosney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ int		input_check(int argc, char **argv)
 		{
 			ft_putstr("Error: Input is incorrect\n");
 			ft_putstr("Please use format : X:Y-Way-Name\n");
-			return (1);	
+			return (1);
 		}
 	}
 	return (0);
 }
 
 int		pos_check(int argc, char **argv)
-{	
+{
 	s.i = 0;
 	while (s.i < (argc - 1))
 	{

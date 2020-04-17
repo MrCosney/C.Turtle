@@ -6,7 +6,7 @@
 /*   By: cosney <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 09:18:11 by cosney            #+#    #+#             */
-/*   Updated: 2020/04/17 12:45:46 by cosney           ###   ########.fr       */
+/*   Updated: 2020/04/17 12:58:37 by cosney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		main(int argc, char **argv)
 	int		t_number;
 
 	t_number = -1;
-	while(++t_number < (argc - 1))
+	while (++t_number < (argc - 1))
 	{
 		zeros(way[t_number], SIZ);
 		zeros(name[t_number], SIZ);
