@@ -1,8 +1,3 @@
-# IMPORTANT Disclaimer For Evaluator
-Since you are didn't provide any correct examples for winning turtle. Since you have a lot of mistakes in your instruction, some of which contradict to each other. Since you are didn't proive the correct edge coordinate for the board:
-**_BOARD STARTS WITH (1:1) coordinate, not with (0:0)_**
-Please don't count it as a mistake since I am fully understand what it could be. This is could be the missunderstanding, but not the mistake! Thank you for you attention!   **_Enjoy!_**
-
 #                                TURTLES
 
 Winner, winner ..
